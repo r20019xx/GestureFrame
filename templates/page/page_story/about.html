@@ -1,0 +1,16 @@
+{% extends "page/base.html" %}
+{% load static %}
+{% block page-title %}{% endblock %}
+{% block title %}Home - Proteinlicious Recipes{% endblock %}
+
+{% block home_active %}selected{% endblock %}
+
+{% block content %}
+    <h2 class="section-title">About SignVisionAI</h2>
+    <p>
+        CS5704 Team Project. Our team wanted to create a program that assiste ASL users by enabling them to fully express themselves in ASL.
+    </p>
+    <p>
+        Currently we have trained a YOLO5 model which reads in ASL in video and predicts what word is being signed. The next step is to convert the predicted signed word into text as output.
+    </p>
+{% endblock %}

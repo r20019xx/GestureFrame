@@ -1,0 +1,228 @@
+html, body {
+    background-color: #ffffff;
+    font-family: Helvetica, Arial, serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* header styles */
+
+div#title-box img {
+    max-width: 9em;
+}
+
+div#logged-in {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+}
+
+div#logged-in img {
+    display: inline;
+    float: left;
+    max-width: 10em;
+    margin: 0 1em 0 0;
+}
+
+div#logged-in span{
+    border: .1em solid #c5bfbf;
+}
+
+div#logged-in button{
+    display: block;
+    margin-top: 1em;
+}
+
+nav#navbar {
+    clear: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    color: #dddddd;
+    background-color: #638D7C;
+    width: 100%;
+    margin-top: 1em;
+}
+
+nav#navbar a {
+    padding: .7em 0 .7em 0;
+    text-align: center;
+    width: 20%;
+    color: white;
+    text-decoration: none;
+}
+
+nav#navbar input {
+    padding: .7em;
+}
+
+nav#navbar a:hover {
+    background-color: #999999;
+}
+
+nav#navbar a.selected {
+    background-color: dimgrey;
+}
+
+/* content styles*/
+div#content {
+    clear: left;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+div#content h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+
+div#example-video h3 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+div#example-video video {
+    justify-content: center;
+    height: 30%;
+    width: 70%;
+}
+
+div#comment-box {
+    border: .1em solid #c5bfbf;
+    text-decoration: none;
+    text-align: left;
+}
+
+ul#comments-list {
+    padding: 0 0 0 .8em;
+}
+
+ul#comments-list li {
+    list-style-type: none;
+    text-align: left;
+}
+
+ul#comments-list li img {
+    display: inline;
+    float: left;
+    max-width: 1.5em;
+    margin-right: .7em;
+}
+
+ul#comments-list li p {
+    text-align: left;
+}
+
+div#comment-bottom {
+    display: flex;
+    border-top: .1em solid #c5bfbf;
+}
+
+div#comment-bottom label {
+    width: 80%;
+}
+
+div#comment-bottom label textarea {
+    width: 100%;
+}
+
+div#comment-bottom button {
+    width: 20%;
+}
+
+
+/* footer styles styles */
+div#footer {
+    position: static;
+    margin-top: 1em;
+    color: #ffffff;
+    border-top: .1em solid #ddd;
+}
+
+div#copyright {
+    margin-left: 12.5%;
+    display: block;
+    float: left;
+    width: 50%;
+    color: black;
+    font-size: small;
+}
+
+/* mobile styles */
+@media (max-width: 794px) {
+    /* header styles*/
+    div#header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div#title-box h2 {
+        font-size: large;
+        display: block;
+    }
+
+    nav#navbar a {
+        font-size: small;
+    }
+
+    /* content styles*/
+    div.recipe-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.recipe a p {
+        font-size: x-large;
+    }
+
+    /* footer styles */
+    div#footer {
+        display: flex;
+        flex-direction: column;
+    }
+    div#footer-nav  {
+        margin-left: 12.5%;
+        margin-bottom: 10%
+    }
+}
+
+/* browser styles */
+@media all and (min-width: 795px) {
+    /* header styles */
+    div#title-box {
+        position: static;
+        float: left;
+        width: 65%;
+        margin-left: 12.5%;
+    }
+
+    div#title-box img {
+        display: inline;
+        float: left;
+        margin: 2em 1em 2.5em 0;
+    }
+
+    div#title-box h2 {
+        font-size: large;
+        display: block;
+    }
+
+    /* content styles*/
+    div.recipe-grid {
+        margin-left: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+
+    div.recipe a p {
+        font-size: larger;
+    }
+
+    /* footer styles */
+    div#footer-nav  {
+        margin-right: 12.5%;
+    }
+}

@@ -1,0 +1,47 @@
+{% load static %}
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>SignVisionAI</title>
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+    </head>
+    <body>
+    <div id="header">
+        <div id="title-box">
+            <img src="{% static "img/handlogo.png" %}" alt="Logo"> <!-- https://www.vecteezy.com/vector-art/24443727-rich-source-of-dietary-fiber-high-protein-food-emblem-badge-seal-stamp-rubber-sticker-logo-label-packaging-design-patch-vector-illustration -->
+            <h1>SignVisionAI</h1>
+            <h2>A New Approach By Translating ASL Into Text</h2>
+        </div><!-- title-box -->
+        <div id="logged-in">
+            <img src="{% static "img/personIcon.png" %}" alt="PersonIcon"> <!-- https://pta.animalia-life.club/icono-de-usuario-verde -->
+            <span>Logged in as: Victor</span>
+            <button>Log Out</button>
+        </div><!-- log in-->
+        <nav id="navbar">
+            <a href="#" class="selected">Home</a>
+            <a href="#">Product</a>
+            <a href="#">Upload</a>
+            <a href="#">About</a>
+            <form action="search-results.html" method="get" id="search">
+                <input type="text" id="search-bar" name="search-bar" placeholder="Search">
+                <input type="submit" id="search-submit" value="Go">
+            </form>
+        </nav><!-- nav bar -->
+    </div><!-- header -->
+    <div id="content">
+       {% block content %}{% endblock %}
+    </div><!-- content -->
+    <div id="footer">
+        <div id = "copyright"><p>Copyright © 2025 SignVisionAI</p></div>
+        <div id = "footer-nav">
+            <p><a href="#">Privacy Policy</a> | <a href="#">FAQ</a> | <a href="#">Contact</a></p>
+        </div>
+    </div><!-- footer -->
+    </body>
+</html>
+
+
