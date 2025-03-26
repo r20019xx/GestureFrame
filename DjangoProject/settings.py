@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o2=r)cb@$2nf56nxf!1wq88h!l2%0r)m*ash*wbej*e2n&97o@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'signvisionai-front-end.onrender.com']
 
 
 # Application definition
