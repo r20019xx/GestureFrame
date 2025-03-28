@@ -9,6 +9,25 @@ def aboutview(request):
     return render(request,
                   "page/page_story/about.html")
 
+def productview(request):
+    return render(request,
+                  "page/page_story/product.html")
+
+def uploadview(request):
+    return render(request,
+                  "page/page_story/upload.html")
+def privacypolicyview(request):
+    return render(request,
+                  "page/page_story/privacypolicy.html")
+
+def faqview(request):
+    return render(request,
+                  "page/page_story/faq.html")
+
+def contactview(request):
+    return render(request,
+                  "page/page_story/contact.html")
+
 def login(request):
     username = request.POST.get("username")
     pw = request.POST.get("pw")
