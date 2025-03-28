@@ -5,27 +5,39 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>SignVisionAI</title>
-        <script src="js/jquery-3.7.1.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src='{% static 'js/jquery-3.7.1.min.js' %}'></script>
+        <script src='{% static 'js/script.js' %}'></script>
         <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
     </head>
     <body>
     <div id="header">
         <div id="title-box">
-            <img src="{% static "img/handlogo.png" %}" alt="Logo"> <!-- https://www.vecteezy.com/vector-art/24443727-rich-source-of-dietary-fiber-high-protein-food-emblem-badge-seal-stamp-rubber-sticker-logo-label-packaging-design-patch-vector-illustration -->
+            <img src="{% static "img/handlogo.png" %}" alt="Logo">
             <h1>SignVisionAI</h1>
             <h2>A New Approach By Translating ASL Into Text</h2>
         </div><!-- title-box -->
-        <div id="logged-in">
-            <img src="{% static "img/personIcon.png" %}" alt="PersonIcon"> <!-- https://pta.animalia-life.club/icono-de-usuario-verde -->
-            <span>Logged in as: Victor</span>
-            <button>Log Out</button>
+
+        {% if request.session.username %}
+        <div id='logged-in'>
+            <img src='{% static 'img/personIcon.png' %}' alt='PersonIcon'>
+            <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %} <strong>{{ request.session.username }}</strong></p>
+            <a href="{% url 'page:logout' %}">Log Out</a>
         </div><!-- log in-->
+
+        {% else %}
+
+        <form id="login-box" action="{% url 'page:login' %}" method ="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="pw" placeholder="password">
+            <input type="submit" name="submit" value="Log In"> or <a href="#">Register</a>
+        </form>
+        {% endif %}
         <nav id="navbar">
-            <a href="#" class="selected">Home</a>
-            <a href="#">Product</a>
-            <a href="#">Upload</a>
-            <a href="#">About</a>
+            <a href="{% url 'page:homeview' %}" class={% block homeSelected %}{% endblock %}>Home</a>
+            <a href="{% url 'page:productview' %}" class={% block productSelected %}{% endblock %}>Product</a>
+            <a href="{% url 'page:uploadview' %}" class={% block uploadSelected %}{% endblock %}>Upload</a>
+            <a href="{% url 'page:aboutview' %}" class={% block aboutSelected %}{% endblock %}>About</a>
             <form action="search-results.html" method="get" id="search">
                 <input type="text" id="search-bar" name="search-bar" placeholder="Search">
                 <input type="submit" id="search-submit" value="Go">
@@ -38,7 +50,7 @@
     <div id="footer">
         <div id = "copyright"><p>Copyright © 2025 SignVisionAI</p></div>
         <div id = "footer-nav">
-            <p><a href="#">Privacy Policy</a> | <a href="#">FAQ</a> | <a href="#">Contact</a></p>
+            <p><a href="{% url 'page:privacypolicyview' %}">Privacy Policy</a> | <a href="{% url 'page:faqview' %}">FAQ</a> | <a href="{% url 'page:contactview' %}">Contact</a></p>
         </div>
     </div><!-- footer -->
     </body>

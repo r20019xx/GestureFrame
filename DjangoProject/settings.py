@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'signvisionai-front-end.onrender.com']
 
 
+# File Based Session
+SESSION_ENGINE = "django.contrib.sessions.backends.file"
+
 # Application definition
 
 INSTALLED_APPS = [
