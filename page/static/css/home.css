@@ -40,6 +40,12 @@ div#logged-in button{
     margin-top: 1em;
 }
 
+form#login-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+}
+
 nav#navbar {
     clear: left;
     display: flex;
