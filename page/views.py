@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-def page_story_home(request):
+def homeview(request):
     return render(request,
                   "page/page_story/index.html")
-def page_story_about(request):
+def aboutview(request):
     return render(request,
                   "page/page_story/about.html")

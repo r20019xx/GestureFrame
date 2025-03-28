@@ -1,11 +1,18 @@
 html, body {
-    background-color: #ffffff;
+    background-color: #d7d2ce;
     font-family: Helvetica, Arial, serif;
     margin: 0;
     padding: 0;
 }
 
 /* header styles */
+div#header {
+    background-color: #d7d2ce;
+    font-family: Helvetica, Arial, serif;
+    margin: 0;
+    padding: 0;
+}
+
 
 div#title-box img {
     max-width: 9em;
@@ -20,7 +27,7 @@ div#logged-in {
 div#logged-in img {
     display: inline;
     float: left;
-    max-width: 10em;
+    height: 4em;
     margin: 0 1em 0 0;
 }
 
@@ -39,8 +46,8 @@ nav#navbar {
     justify-content: space-between;
     align-items: center;
     height: 3em;
-    color: #dddddd;
-    background-color: #638D7C;
+    color: #2B2D35;
+    background-color: #6A8193;
     width: 100%;
     margin-top: 1em;
 }

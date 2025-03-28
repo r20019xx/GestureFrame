@@ -5,27 +5,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>SignVisionAI</title>
-        <script src="js/jquery-3.7.1.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src='{% static 'js/jquery-3.7.1.min.js' %}'></script>
+        <script src='{% static 'js/script.js' %}'></script>
         <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
     </head>
     <body>
     <div id="header">
         <div id="title-box">
-            <img src="{% static "img/handlogo.png" %}" alt="Logo"> <!-- https://www.vecteezy.com/vector-art/24443727-rich-source-of-dietary-fiber-high-protein-food-emblem-badge-seal-stamp-rubber-sticker-logo-label-packaging-design-patch-vector-illustration -->
+            <img src="{% static "img/handlogo.png" %}" alt="Logo">
             <h1>SignVisionAI</h1>
             <h2>A New Approach By Translating ASL Into Text</h2>
         </div><!-- title-box -->
         <div id="logged-in">
-            <img src="{% static "img/personIcon.png" %}" alt="PersonIcon"> <!-- https://pta.animalia-life.club/icono-de-usuario-verde -->
+            <img src="{% static "img/personIcon.png" %}" alt="PersonIcon">
             <span>Logged in as: Victor</span>
             <button>Log Out</button>
         </div><!-- log in-->
         <nav id="navbar">
-            <a href="#" class="selected">Home</a>
+            <a href="{% url 'page:homeview' %}" class="selected">Home</a>
             <a href="#">Product</a>
             <a href="#">Upload</a>
-            <a href="#">About</a>
+            <a href="{% url 'page:aboutview' %}">About</a>
             <form action="search-results.html" method="get" id="search">
                 <input type="text" id="search-bar" name="search-bar" placeholder="Search">
                 <input type="submit" id="search-submit" value="Go">
