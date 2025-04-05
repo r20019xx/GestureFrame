@@ -2,10 +2,12 @@ from pathlib import Path
 import torch
 import cv2
 import pathlib
+import platform
 
 # Fix path issue for environments that have compatibility issues with pathlib
-# This ensures that PosixPath is properly handled on Windows machines
-pathlib.PosixPath = pathlib.WindowsPath
+# This ensures that PosixPath is properly handled on Windows machines if it is a window's machine
+if platform.system() == "Windows":
+    pathlib.PosixPath = pathlib.WindowsPath
 
 # Load the custom-trained YOLOv5 model from a local file ('best.pt')
 model = torch.hub.load('yolov5', 'custom', path='C:/Users/victo/Downloads/AslRunCoding/AslRunCoding/best.pt', source='local')
@@ -71,4 +73,3 @@ while cap.isOpened():
 # Release the webcam and close OpenCV windows
 cap.release()
 cv2.destroyAllWindows()
-

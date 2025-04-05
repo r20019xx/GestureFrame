@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('page.urls', namespace="page")),
+    path('api/', include('api.urls')),  # map api to api/urls.py to enable /api/predict/views.py PredictViews()
 ]

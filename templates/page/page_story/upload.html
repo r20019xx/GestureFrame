@@ -3,6 +3,24 @@
 {% block page-title %}{% endblock %}
 {% block title %}Upload - SignVisionAI{% endblock %}
 
+{% block uploadSelected %}selected{% endblock %}
+
 {% block content %}
-    <h2 class="section-title">Upload Page</h2>
+<h2 class="section-title">ASL Detection</h2>
+
+<!-- Upload a photo file -->
+<h3>Upload a Photo</h3>
+<input type="file" id="ASL_image" accept="image/*" />
+<button id="upload_image_button">Upload Image</button>
+
+<hr style="margin: 20px 0;">
+
+<!-- Use the camera to upload a photo -->
+<h3>Take a Picture</h3>
+<video id="camera" autoplay playsinline width="400"></video>
+<canvas id="snapshot" style="display: none;"></canvas>
+<button id="capture_image_button">Capture & Predict</button>
+
+<h3 style="margin-top: 30px;">Prediction Results:</h3>
+<pre id="display_results">No results yet.</pre>
 {% endblock %}
