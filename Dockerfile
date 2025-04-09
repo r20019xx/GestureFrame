@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 LABEL authors="jamesyeh"
 
-ENV DJANGO_SETTINGS_MODULE=myproject.settings
+ENV DJANGO_SETTINGS_MODULE=DjangoProject.settings
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
