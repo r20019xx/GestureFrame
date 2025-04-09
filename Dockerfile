@@ -4,7 +4,13 @@ LABEL authors="jamesyeh"
 ENV DJANGO_SETTINGS_MODULE=DjangoProject.settings
 ENV PYTHONUNBUFFERED=1
 
-RUN apt-get update && apt-get install -y libgl1-mesa-glx
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
