@@ -1,34 +1,58 @@
 // DOM = Document object Model
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("JavaScript loaded");
+
   const upload_image_button = document.getElementById("upload_image_button");
   const file_input = document.getElementById("ASL_image");
   const capture_image_button = document.getElementById("capture_image_button");
   const video = document.getElementById("camera");
   const canvas = document.getElementById("snapshot");
-  const display_results = document.getElementById("display_results");
+  const camera_results = document.getElementById("camera_results");
+  const upload_results = document.getElementById("upload_results");
+  const methodSelector = document.getElementById("methodSelector");
+  const cameraSection = document.getElementById("camera-section");
+  const uploadSection = document.getElementById("upload-section");
 
   // Covers functionality to take and upload photos to guess ASL sign located on the "Upload" page of website
+  // Force default display
+  cameraSection.style.display = "block";
+  uploadSection.style.display = "none";
+
+  // Upload Options dropdown
+  methodSelector.addEventListener("change", function () {
+    console.log("User selected:", methodSelector.value);
+
+    if (methodSelector.value === "camera") {
+      cameraSection.style.display = "block";
+      uploadSection.style.display = "none";
+    } else if (methodSelector.value === "upload") {
+      cameraSection.style.display = "none";
+      uploadSection.style.display = "block";
+    }
+  });
+
   // Check if user allowed access to device's camera, and start the webcam
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices
-        // ask user for permission to access device's camera
+      // ask user for permission to access device's camera
       .getUserMedia({ video: true })
       .then((stream) => {
         video.srcObject = stream;
         video.play(); // user allowed access to camera stream camera feed
       })
-      .catch((err) => {     // if user does not allow access to camera display message
+      .catch((err) => {
+        // if user does not allow access to camera display message
         console.error("Camera access denied:", err);
-        display_results.textContent = "Unable to access camera.";
+        camera_results.textContent = "Unable to access camera.";
       });
   }
 
   // Send image to backend to get prediction
-  function sendToBackend(blob, filename = "image.jpg") {
+  function sendToBackend(blob, filename = "image.jpg", resultsTarget) {
     const formData = new FormData();
-    formData.append("file", blob, filename);    // append imagefile to formData which is sent to backend api/views
+    formData.append("file", blob, filename); // append imagefile to formData which is sent to backend api/views
 
-    fetch("/api/predict/", {  // /api/ connected to backend predict is the
+    fetch("/api/predict/", {
       method: "POST",
       body: formData,
     })
@@ -36,16 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.predictions && data.predictions.length > 0) {
           const formatted = data.predictions
-            .map(p => `${p.label} @ (${p.x1}, ${p.y1}) → (${p.x2}, ${p.y2})`)
+            .map((p) => `${p.label} @ (${p.x1}, ${p.y1}) → (${p.x2}, ${p.y2})`)
             .join("\n");
-          display_results.textContent = formatted;
+          resultsTarget.textContent = formatted;
         } else {
-          display_results.textContent = "No predictions.";
+          resultsTarget.textContent = "No predictions.";
         }
       })
       .catch((error) => {
         console.error("Prediction error:", error);
-        display_results.textContent = "Error connecting to backend.";
+        resultsTarget.textContent = "Error connecting to backend.";
       });
   }
 
@@ -57,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const file = file_input.files[0];
-    sendToBackend(file, file.name);
+    sendToBackend(file, file.name, upload_results);
   });
 
   // Webcam Snapshot
@@ -68,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     canvas.toBlob((image) => {
-      sendToBackend(image, "capture.jpg");
+      sendToBackend(image, "capture.jpg", camera_results);
     }, "image/jpeg");
   });
 });
