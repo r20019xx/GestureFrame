@@ -3,6 +3,44 @@
 {% block page-title %}{% endblock %}
 {% block title %}Upload - SignVisionAI{% endblock %}
 
+{% block uploadSelected %}selected{% endblock %}
 {% block content %}
-    <h2 class="section-title">Upload Page</h2>
+<h2 class="section-title">ASL Detection</h2>
+
+<!-- Upload Options dropdown selector -->
+<div style="text-align: center; margin-bottom: 20px;">
+    <label for="methodSelector"><strong>Upload Options:</strong></label>
+    <select id="methodSelector">
+        <option value="camera">Take a Picture</option>
+        <option value="upload">Upload a Photo</option>
+    </select>
+</div>
+
+<!-- Covers functionality to take and upload photos to guess ASL sign located on the "Upload" page of website -->
+<div id="detection-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
+
+    <!-- Use the camera to upload a photo -->
+    <div id="camera-section" style="flex: 1;">
+        <h3>Take a Picture</h3>
+        <video id="camera" autoplay playsinline width="400" style="max-width: 100%; border: 1px solid #ccc; border-radius: 6px;"></video>
+        <canvas id="snapshot" style="display: none;"></canvas>
+        <br><br>
+        <button id="capture_image_button">Capture & Predict</button>
+
+        <h3 style="margin-top: 30px;">Prediction Results (Camera):</h3>
+        <pre id="camera_results">No results yet.</pre>
+    </div>
+
+    <!-- Upload a photo file -->
+    <div id="upload-section" style="display: none; flex: 1;">
+        <h3>Upload a Photo</h3>
+        <input type="file" id="ASL_image" accept="image/*" />
+        <br><br>
+        <button id="upload_image_button">Upload Image</button>
+
+        <h3 style="margin-top: 30px;">Prediction Results (Upload):</h3>
+        <pre id="upload_results">No results yet.</pre>
+    </div>
+
+</div>
 {% endblock %}
