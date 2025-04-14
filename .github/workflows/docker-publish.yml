@@ -34,12 +34,3 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/signvisionai-front-end:latest
           platforms: linux/amd64,linux/arm64
-
-      - name: Set container package to public
-        run: |
-          gh api --method PATCH \
-            -H "Accept: application/vnd.github+json" \
-            "/users/${{ github.repository_owner }}/packages/container/signvisionai-front-end/visibility" \
-            -f visibility=public
-        env:
-          GITHUB_TOKEN: ${{ secrets.CR_PAT }}
