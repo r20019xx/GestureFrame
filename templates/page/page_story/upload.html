@@ -20,19 +20,27 @@
 <div id="detection-container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
 
     <!-- Use the camera to upload a photo -->
-    <div id="camera-section" style="flex: 1;">
-        <h3>Take a Picture</h3>
-        <video id="camera" autoplay playsinline width="400" style="max-width: 100%; border: 1px solid #ccc; border-radius: 6px;"></video>
-        <canvas id="snapshot" style="display: none;"></canvas>
-        <br><br>
-        <button id="capture_image_button">Capture & Predict</button>
-
-        <h3 style="margin-top: 30px;">Prediction Results (Camera):</h3>
-        <pre id="camera_results">No results yet.</pre>
+    <div id="camera-section" style="flex: 1; margin-left: 1in;">
+        <!-- Flex container dividing into left and right columns -->
+        <div class="camera-flex-container" style="display: flex; justify-content: space-between;">
+            <!-- Left half: Take a Picture, video feed, and Capture & Predict button -->
+            <div class="camera-left" style="width: 48%; text-align: center;">
+                <h3>Take a Picture</h3>
+                <video id="camera" autoplay playsinline width="400" style="max-width: 100%; border: 1px solid #ccc; border-radius: 6px;"></video>
+                <canvas id="snapshot" style="display: none;"></canvas>
+                <br><br>
+                <button id="capture_image_button" class="my-button">Capture & Predict</button>
+            </div>
+            <!-- Right half: Prediction Results header and the results -->
+            <div class="camera-right" style="width: 48%; text-align: center;">
+                <h3>Prediction Results (Camera):</h3>
+                <pre id="camera_results" style="margin-top: 20px;">No results yet.</pre>
+            </div>
+        </div>
     </div>
 
     <!-- Upload a photo file -->
-    <div id="upload-section" style="display: none; flex: 1;">
+    <div id="upload-section" style="display: none; flex: 1; text-align: center;">
         <h3>Upload a Photo</h3>
         <input type="file" id="ASL_image" accept="image/*" />
         <br><br>

@@ -1,6 +1,43 @@
+/// function to go from lightmode to dark mode and vice versa
+function toggleDarkMode() {
+    // Toggle the dark mode class on both the html and body elements
+    document.documentElement.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
+
+    // Save the user's preference to localStorage so that darkmode persists if changing to diff webpage
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+// changes
+function toggleDarkModeAndUpdateText(event) {
+    event.preventDefault();         // prevents defaulting to light mode
+    toggleDarkMode();               // change from light to dark mode
+    updateThemeToggleLinkText();    // update text in the settings dropdown
+}
+// changes text in the dropdown based on the mode that website is currently in
+function updateThemeToggleLinkText() {
+    var link = document.getElementById("theme-toggle-link");
+    if (document.body.classList.contains("dark-mode")) {
+        link.textContent = "Change to Light Mode";
+    } else {
+        link.textContent = "Change to Dark Mode";
+    }
+}
+
 // DOM = Document object Model
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript loaded");
+
+  // Apply stored theme preference if it exists
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.body.classList.add("dark-mode");
+  }
+  updateThemeToggleLinkText(); // Set initial dropdown link text based on the theme
 
   const upload_image_button = document.getElementById("upload_image_button");
   const file_input = document.getElementById("ASL_image");

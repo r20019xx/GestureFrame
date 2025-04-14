@@ -5,10 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>SignVisionAI</title>
-        <script src='{% static 'js/jquery-3.7.1.min.js' %}'></script>
-        <script src='{% static 'js/script.js' %}'></script>
-        <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+        <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
         <script src="{% static 'js/script.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     </head>
     <body>
     <div id="header">
@@ -24,7 +23,6 @@
             <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %} <strong>{{ request.session.username }}</strong></p>
             <a href="{% url 'page:logout' %}">Log Out</a>
         </div><!-- log in-->
-
         {% else %}
 
         <form id="login-box" action="{% url 'page:login' %}" method ="POST">
@@ -39,6 +37,13 @@
             <a href="{% url 'page:productview' %}" class={% block productSelected %}{% endblock %}>Product</a>
             <a href="{% url 'page:uploadview' %}" class={% block uploadSelected %}{% endblock %}>Upload</a>
             <a href="{% url 'page:aboutview' %}" class={% block aboutSelected %}{% endblock %}>About</a>
+            <!-- Settings dropdown (between About and Search in navbar) -->
+            <div id="theme-toggle-container" class="dropdown">
+                <button id="settings-button">Settings</button>
+                <div id="settings-menu" class="dropdown-content">
+                    <a href="#" id="theme-toggle-link" onclick="toggleDarkModeAndUpdateText(event)">Change to Dark Mode</a>
+                </div>
+            </div>
             <form action="search-results.html" method="get" id="search">
                 <input type="text" id="search-bar" name="search-bar" placeholder="Search">
                 <input type="submit" id="search-submit" value="Go">
@@ -56,5 +61,3 @@
     </div><!-- footer -->
     </body>
 </html>
-
-
