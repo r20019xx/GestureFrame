@@ -14,7 +14,8 @@ model = torch.hub.load(
     os.path.join(BASE_DIR, "backend_ml_model", "yolov5"),
     "custom",
     path=model_path,
-    source="local"
+    source="local",
+    force_reload=True
 )
 
 # An APIView class that's used for incorporating yolov5 model image prediction with script.json for upload webpage
