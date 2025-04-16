@@ -1,64 +1,66 @@
 {% load static %}
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>SignVisionAI</title>
-        <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
-        <script src="{% static 'js/feedback.js' %}"></script>
-        <!-- <script src="{% static 'js/script.js' %}"></script> -->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-    </head>
-    <body>
-    <div id="header">
-        <div id="title-box">
-            <img src="{% static "img/handlogo.png" %}" alt="Logo">
-            <h1>SignVisionAI</h1>
-            <h2>A New Approach By Translating ASL Into Text</h2>
-        </div><!-- title-box -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>SignVisionAI</title>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/feedback.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+<div id="header">
+    <div id="title-box">
+        <img src="{% static "img/handlogo.png" %}" alt="Logo">
+        <h1>SignVisionAI</h1>
+        <h2>A New Approach By Translating ASL Into Text</h2>
+    </div><!-- title-box -->
 
-        {% if request.session.username %}
+    {% if request.session.username %}
         <div id='logged-in'>
             <img src='{% static 'img/personIcon.png' %}' alt='PersonIcon'>
-            <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %} <strong>{{ request.session.username }}</strong></p>
+            <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %}
+                <strong>{{ request.session.username }}</strong></p>
             <a href="{% url 'page:logout' %}">Log Out</a>
         </div><!-- log in-->
-        {% else %}
+    {% else %}
 
-        <form id="login-box" action="{% url 'page:login' %}" method ="POST">
+        <form id="login-box" action="{% url 'page:login' %}" method="POST">
             {% csrf_token %}
             <input type="text" name="username" placeholder="username">
             <input type="password" name="pw" placeholder="password">
             <input type="submit" name="submit" value="Log In"> or <a href="#">Register</a>
         </form>
-        {% endif %}
-        <nav id="navbar">
-            <a href="{% url 'page:homeview' %}" class={% block homeSelected %}{% endblock %}>Home</a>
-            <a href="{% url 'page:uploadview' %}" class={% block uploadSelected %}{% endblock %}>Upload</a>
-            <a href="{% url 'page:feedbackview' %}" class={% block feedbackSelected %}{% endblock %}>Feedback</a>
-            <a href="{% url 'page:aboutview' %}" class={% block aboutSelected %}{% endblock %}>About</a>
-            <!-- Settings dropdown (between About and Search in navbar) -->
-            <div id="theme-toggle-container" class="dropdown">
-                <button id="settings-button">Settings</button>
-                <div id="settings-menu" class="dropdown-content">
-                    <a href="#" id="theme-toggle-link" onclick="toggleDarkModeAndUpdateText(event)">Change to Dark Mode</a>
-                </div>
+    {% endif %}
+    <nav id="navbar">
+        <a href="{% url 'page:homeview' %}" class={% block homeSelected %}{% endblock %}>Home</a>
+        <a href="{% url 'page:uploadview' %}" class={% block uploadSelected %}{% endblock %}>Upload</a>
+        <a href="{% url 'page:feedbackview' %}" class={% block feedbackSelected %}{% endblock %}>Feedback</a>
+        <a href="{% url 'page:aboutview' %}" class={% block aboutSelected %}{% endblock %}>About</a>
+        <!-- Settings dropdown (between About and Search in navbar) -->
+        <div id="theme-toggle-container" class="dropdown">
+            <button id="settings-button">Settings</button>
+            <div id="settings-menu" class="dropdown-content">
+                <a href="#" id="theme-toggle-link" onclick="toggleDarkModeAndUpdateText(event)">Change to Dark Mode</a>
             </div>
-            <form action="search-results.html" method="get" id="search">
-                <input type="text" id="search-bar" name="search-bar" placeholder="Search">
-                <input type="submit" id="search-submit" value="Go">
-            </form>
-        </nav><!-- nav bar -->
-    </div><!-- header -->
-    <div id="content">
-       {% block content %}{% endblock %}
-    </div><!-- content -->
-    <div id="footer">
-        <div id = "copyright"><p>Copyright © 2025 SignVisionAI</p></div>
-        <div id = "footer-nav">
-            <p><a href="{% url 'page:privacypolicyview' %}">Privacy Policy</a> | <a href="{% url 'page:faqview' %}">FAQ</a> | <a href="{% url 'page:contactview' %}">Contact</a></p>
         </div>
-    </div><!-- footer -->
-    </body>
+        <form action="search-results.html" method="get" id="search">
+            <input type="text" id="search-bar" name="search-bar" placeholder="Search">
+            <input type="submit" id="search-submit" value="Go">
+        </form>
+    </nav><!-- nav bar -->
+</div><!-- header -->
+<div id="content">
+    {% block content %}{% endblock %}
+</div><!-- content -->
+<div id="footer">
+    <div id="copyright"><p>Copyright © 2025 SignVisionAI</p></div>
+    <div id="footer-nav">
+        <p><a href="{% url 'page:privacypolicyview' %}">Privacy Policy</a> | <a href="{% url 'page:faqview' %}">FAQ</a>
+            | <a href="{% url 'page:contactview' %}">Contact</a></p>
+    </div>
+</div><!-- footer -->
+</body>
 </html>
