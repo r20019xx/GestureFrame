@@ -1,0 +1,31 @@
+{% extends "page/base.html" %}
+{% load static %}
+{% block page-title %}{% endblock %}
+{% block title %}Product - SignVisionAI{% endblock %}
+{% block feedbackSelected %}selected{% endblock %}
+{% block content %}
+    <h2 class="section-title">Feedback</h2>
+    <div id="comments-section">
+            <h3>Feedback Forum</h3>
+            <div id='comment-box'>
+                {% if request.session.username %}
+                    <ul id='comments-list'>
+                        {% for i in commentsList %}
+                            <li>
+                                <img src='{% static 'img/personIcon.png' %}' alt='PersonIcon'>
+                                <p><strong>{{ i.user }}</strong> - {{ i.date }}:</p>
+                                <p>{{ i.comment }}</p>
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+                    <div id='comment-bottom'>
+                        <label><textarea id="comment-text" placeholder='Add a comment here...'></textarea></label>
+                        <button id="comment-button" data-ajax-url="{% url 'page:commentview' %}">Submit</button>
+                    </div>
+                {% else %}
+                    <p id="comment-empty">Commenting is only for logged in users</p>
+                {% endif %}
+            </div>
+        </div><!-- comments -->
+{% endblock %}

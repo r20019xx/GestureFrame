@@ -118,7 +118,17 @@ div#example-video video {
     width: 70%;
 }
 
+div#comments-section h3 {
+    text-align: center;
+}
+
+p#comment-empty {
+    padding: 5em 0 5em 0;
+    text-align: center;
+}
+
 div#comment-box {
+    margin: 4em 8em 6em 8em;
     border: .1em solid #c5bfbf;
     text-decoration: none;
     text-align: left;

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'page.apps.PageConfig',
     'django.contrib.admin',
     'rest_framework',
-     'api'
+    'api',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +83,13 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "cs5704db",
+        "USER": "postgres",
+        "PASSWORD": "Bhalloo1473@",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
