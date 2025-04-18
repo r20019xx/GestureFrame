@@ -1,10 +1,12 @@
 # Ignore IDE settings
 .idea/
+*.iml
 .vscode/
 # Ignore virtualenv
 .venv/
 # Ignore Python caches
 __pycache__/
 *.pyc
+*.py[cod]
 # Ignore macOS
 .DS_Store
