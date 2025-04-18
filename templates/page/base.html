@@ -21,17 +21,17 @@
     {% if request.session.username %}
         <div id='logged-in'>
             <img src='{% static 'img/personIcon.png' %}' alt='PersonIcon'>
-            <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %}
+            <p>Logged in as: {% if request.session.role == 'admin' %} Admin {% endif %} <a href="{% url "users:profile" request.session.username %}"><strong>{{ request.session.username }}</strong></a></p>
                 <strong>{{ request.session.username }}</strong></p>
-            <a href="{% url 'page:logout' %}">Log Out</a>
+            <a href="{% url 'users:logout' %}">Log Out</a>
         </div><!-- log in-->
     {% else %}
 
-        <form id="login-box" action="{% url 'page:login' %}" method="POST">
+        <form id="login-box" action="{% url 'users:login' %}" method="POST">
             {% csrf_token %}
             <input type="text" name="username" placeholder="username">
             <input type="password" name="pw" placeholder="password">
-            <input type="submit" name="submit" value="Log In"> or <a href="#">Register</a>
+            <input type="submit" name="submit" value="Log In"> or <a href="{% url 'users:register' %}">Register</a>
         </form>
     {% endif %}
     <nav id="navbar">
@@ -52,6 +52,13 @@
         </form>
     </nav><!-- nav bar -->
 </div><!-- header -->
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <div id="content">
     {% block content %}{% endblock %}
 </div><!-- content -->

@@ -54,26 +54,3 @@ def faqview(request):
 def contactview(request):
     return render(request,
                   "page/page_story/contact.html")
-
-def login(request):
-    username = request.POST.get("username")
-    pw = request.POST.get("pw")
-    # authentication with password for regular user
-    if (username == regular_user['username'] and pw == regular_user['pw']):
-        # identification with sessions
-        request.session['username'] = username
-        request.session['role'] = 'regular'
-        return redirect('page:homeview')
-    # admin authentication
-    elif (username == admin_user['username'] and pw == admin_user['pw']):
-        request.session['username'] = username
-        request.session['role'] = 'admin'
-        return redirect('page:homeview')
-    else:
-        return redirect('page:homeview')
-
-def logout(request):
-    del request.session['username']
-    del request.session['role']
-    return redirect('page:homeview')
-

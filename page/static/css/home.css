@@ -107,6 +107,28 @@ div#content h2 {
     margin-bottom: 2em;
 }
 
+#register-users {
+    margin: 0 8em 8em 8em;
+}
+
+ul.messages li.success {
+    background-color: lightgreen;
+    padding: 1em;
+    margin: 0.25em;
+}
+
+dl#profile-list {
+    margin: 0 8em 15em 8em;
+}
+
+dt.itemDes {
+    margin: 2em 0 .5em 0;
+}
+
+dd.item {
+    margin: 0 0 2em 0;
+}
+
 div#example-video h3 {
     text-align: center;
     margin-bottom: 2em;

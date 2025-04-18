@@ -1,3 +1,5 @@
+import pathlib
+
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,16 +9,25 @@ from PIL import Image
 import os
 
 # Load YOLOv5 model globally
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # define path to projects root directory
-model_path = os.path.join(BASE_DIR, "backend_ml_model", "best.pt")      # define path to best.pt
-# use pytorch to load yolov5 model
-model = torch.hub.load(
-    os.path.join(BASE_DIR, "backend_ml_model", "yolov5"),
-    "custom",
-    path=model_path,
-    source="local",
-    force_reload=True
-)
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # define path to projects root directory
+# model_path = os.path.join(BASE_DIR, "backend_ml_model", "best.pt")      # define path to best.pt
+# BASE_DIR = 'C:/Users/victo/PycharmProjects'
+# model_path = 'C:/Users/victo/PycharmProjects/SignVisionAI-Front-End/backend_ml_model/best.pt'
+# # use pytorch to load yolov5 model
+# model = torch.hub.load(
+#     #os.path.join(BASE_DIR, "backend_ml_model", "yolov5"),
+#     'C:/Users/victo/PycharmProjects/SignVisionAI-Front-End/backend_ml_model/yolov5',
+#     "custom",
+#     path=model_path,
+#     source="local",
+#     force_reload=True
+# )
+
+pathlib.PosixPath = pathlib.WindowsPath
+
+# Load the custom-trained YOLOv5 model from a local file ('best.pt')
+model = torch.hub.load('yolov5', 'custom', path='C:/Users/victo/PycharmProjects/SignVisionAI-Front-End/backend_ml_model/best.pt', source='local')
+
 
 # An APIView class that's used for incorporating yolov5 model image prediction with script.json for upload webpage
 class PredictView(APIView):

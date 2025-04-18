@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'django.contrib.postgres',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -90,21 +91,32 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-env = environ.Env(
-    DATABASE_URL=(
-        str,
-        f"sqlite:///{(BASE_DIR / 'db.sqlite3').as_posix()}"
-    )
-)
-
-env.read_env(env_file=BASE_DIR / ".env")
+# env = environ.Env(
+#     DATABASE_URL=(
+#         str,
+#         f"sqlite:///{(BASE_DIR / 'db.sqlite3').as_posix()}"
+#     )
+# )
+#
+# env.read_env(env_file=BASE_DIR / ".env")
+#
+# DATABASES = {
+#     "default": dj_database_url.parse(
+#         env("DATABASE_URL"),
+#         conn_max_age=600,
+#         ssl_require=(env("DJANGO_ENV", default="development") == "production"),
+#     )
+# }
 
 DATABASES = {
-    "default": dj_database_url.parse(
-        env("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=(env("DJANGO_ENV", default="development") == "production"),
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "db",
+        "USER": "doadmin",
+        "PASSWORD": "AVNS_tAjSiJ8VUQwLpqkfmLC",
+        "HOST": "app-f6654ef2-4ffa-4727-a87e-bcb6837fe814-do-user-20912697-0.h.db.ondigitalocean.com",
+        "PORT": "25060",
+    }
 }
 
 # Password validation
