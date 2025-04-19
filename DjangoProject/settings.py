@@ -91,15 +91,6 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# env = environ.Env(
-#     DATABASE_URL=(
-#         str,
-#         f"sqlite:///{(BASE_DIR / 'db.sqlite3').as_posix()}"
-#     )
-# )
-#
-# env.read_env(env_file=BASE_DIR / ".env")
-#
 # DATABASES = {
 #     "default": dj_database_url.parse(
 #         env("DATABASE_URL"),
