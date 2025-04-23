@@ -2,6 +2,9 @@
 {% load static %}
 {% block page-title %}{% endblock %}
 {% block title %}Upload - SignVisionAI{% endblock %}
+{% block page_specific_css %}
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+{% endblock %}
 
 {% block uploadSelected %}selected{% endblock %}
 {% block content %}
@@ -32,16 +35,16 @@
                 <button id="capture_image_button" class="my-button">Capture & Predict</button>
             </div>
             <!-- Right half: Prediction Results header and the results -->
-            <div class="camera-right" style="width: 48%; text-align: center;">
+            <div class="camera-right">
                 <h3>Prediction Results (Camera):</h3>
-                <pre id="camera_results" style="margin-top: 20px;">No results yet.</pre>
+                <pre id="camera_results">No results yet.</pre>
             </div>
         </div>
     </div>
 
     <!-- Upload a photo file -->
     <div id="upload-section" style="display: none; flex: 1; text-align: center;">
-        <h3>Upload a Photo</h3>
+        <h3 style="margin-top: 30px;">Upload a Photo</h3>
         <input type="file" id="ASL_image" accept="image/*" />
         <br><br>
         <button id="upload_image_button">Upload Image</button>

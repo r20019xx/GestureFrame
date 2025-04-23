@@ -1,0 +1,158 @@
+/* Navbar area and overall background (dark mode) */
+html.dark-mode,
+body.dark-mode {
+    background-color: #778da9;
+    color: #e0e1dd;
+}
+
+body.dark-mode .about-content {
+    box-shadow: 0 2px 8px rgb(68, 81, 97);
+}
+
+/* header */
+body.dark-mode div.header {
+    background-color: #778da9;
+    color: #1b263b;
+}
+body.dark-mode nav#navbar {
+    background-color: #778da9;
+    color: #ffffff;
+}
+body.dark-mode nav#navbar a {
+    color: #0d1b2a;
+}
+
+body.dark-mode nav#navbar a.selected {
+    background-color: #04ccbd;
+    color: #0d1b2a;
+}
+
+body.dark-mode nav#navbar a:hover {
+    background-color: #04ccbd;
+    color: #0d1b2a;
+}
+
+/* Main content area*/
+body.dark-mode div#content {
+    background-color: #1b263b;
+    color: #ffffff;
+}
+
+body.dark-mode div#content .slogan-slider h2 {
+  color: #e0e1dd;
+  padding: 2em;
+}
+body.dark-mode div#content .section-title {
+  color: #e0e1dd;
+  padding: 2em;
+}
+body.dark-mode div#content .body-text h3 {
+  color: #e0e1dd;
+  padding: 2em;
+}
+
+body.dark-mode .typewriter{
+  color: #0df6e5;
+}body.dark-mode .typewriter-container{
+  background-color: rgb(27, 38, 59);
+}
+
+/* Footer*/
+body.dark-mode div#footer {
+    background-color: #778da9;
+    color: #04ccbd;
+}
+
+body.dark-mode #footer p {
+    color: #1b263b;
+    font-size: medium;
+}
+
+body.dark-mode #footer-nav a {
+    color: #0d1b2a;
+}
+
+body.dark-mode #footer-nav a:hover {
+    color: #04ccbd !important;
+    text-decoration: underline;
+}
+
+/* Form elements & buttons */
+body.dark-mode input,
+body.dark-mode .input_user,
+body.dark-mode .input_pass,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode button {
+    background-color: #0d1b2a;
+    color: #ffffff;
+    border: 2px solid #009f93;
+}
+
+/* <pre> blocks (dark mode) */
+body.dark-mode pre {
+    background-color: #333333;
+    color: #ffffff;
+}
+body.dark-mode #settings-button {
+    background-color: #778da9;
+    color: #0d1b2a;
+    border: none !important;
+    outline: none !important;
+}
+
+body.dark-mode #settings-button:hover {
+  background-color: #04ccbd;
+  color: #1b263b;
+}
+
+body.dark-mode .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: #ffffff;
+    background-color: #1b263b;
+    z-index: 1;
+}
+body.dark-mode .dropdown-content a {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    background-color: #778da9;
+    color: #ffffff;
+}
+body.dark-mode #theme-toggle-container:hover .dropdown-content {
+    display: block;
+    background-color: #e0e1dd;
+}
+
+body.dark-mode div#copyright {
+    margin-left: 12.5%;
+    display: block;
+    float: left;
+    width: 50%;
+    color: white;
+    font-size: small;
+}
+
+body.dark-mode .camera-right pre {
+    color: #024c47 !important;
+    background-color: #ffffff;
+}
+
+body.dark-mode #upload-section h3 {
+    color: #F3F3F3;
+}
+
+body.dark-mode .about-content p{
+    color: #F3F3F3;
+}
+body.dark-mode .about-content ul{
+    color: #F3F3F3;
+}

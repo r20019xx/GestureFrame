@@ -3,13 +3,37 @@
 {% block page-title %}{% endblock %}
 {% block title %}About - SignVisionAI{% endblock %}
 {% block aboutSelected %}selected{% endblock %}
-
+{##}
+{#{% block content %}#}
+{#    <h2 class="section-title">About SignVisionAI</h2>#}
+{#    <p>#}
+{#        CS5704 Team Project. Our team wanted to create a program that assiste ASL users by enabling them to fully express themselves in ASL.#}
+{#    </p>#}
+{#    <p>#}
+{#        Currently we have trained a YOLO5 model which reads in ASL in video and predicts what word is being signed. The next step is to convert the predicted signed word into text as output.#}
+{#    </p>#}
+{#{% endblock %}#}
+{% block page_specific_css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 {% block content %}
     <h2 class="section-title">About SignVisionAI</h2>
-    <p>
-        CS5704 Team Project. Our team wanted to create a program that assiste ASL users by enabling them to fully express themselves in ASL.
-    </p>
-    <p>
-        Currently we have trained a YOLO5 model which reads in ASL in video and predicts what word is being signed. The next step is to convert the predicted signed word into text as output.
-    </p>
+    <div class="about-content">
+        <p>
+          SignVisionAI started as our CS5704 Team Project aimed to empower Deaf and hard‑of‑hearing communities by leveraging computer vision.
+            Our goal is to let people sign freely in ASL and have our system translate it instantly into text.
+        </p>
+        <p>
+          Under the hood we’ve trained a <strong>YOLOv5</strong> model on hundreds of labeled ASL signs. It runs real‑time in the browser via Django → REST → JavaScript, detecting hand gestures and returning the corresponding word.
+        </p>
+        <p>
+          Next up (outside course expectations):  
+          <ul>
+            <li>Fine‑tune for continuous signing (multiple words in sequence)</li>
+            <li>Expand the vocabulary to include fingerspelling for names & uncommon words</li>
+            <li>Build a mobile‑friendly UI so you can sign on the go</li>
+          </ul>
+        </p>
+        <p> Our team is passionate about making communication more accessible. </p>
+    </div>
 {% endblock %}
