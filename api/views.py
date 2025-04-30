@@ -41,9 +41,9 @@ class PredictView(APIView):
             for *box, conf, cls in detections:
                 x1, y1, x2, y2 = map(int, box)
                 class_name = model.names[int(cls)].strip("?")
-                label = f"{class_name}: {conf:.2f}"
+                # label = f"{class_name}: {conf:.2f}"
                 output.append({
-                    "label": label,
+                    "label": class_name,
                     "x1": x1,  # box coordinates x1, y1, x2, y2
                     "y1": y1,
                     "x2": x2,

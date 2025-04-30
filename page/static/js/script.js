@@ -30,10 +30,8 @@ function updateThemeToggleLinkText() {
 }
 
 // DOM = Document object Model
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     console.log("JavaScript loaded");
-
-    addComment();
 
     // Apply stored theme preference if it exists
     const storedTheme = localStorage.getItem("theme");
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const upload_image_button = document.getElementById("upload_image_button");
     const file_input = document.getElementById("ASL_image");
-    const capture_image_button = document.getElementById("capture_image_button");
     const video = document.getElementById("camera");
     const canvas = document.getElementById("snapshot");
     const camera_results = document.getElementById("camera_results");
@@ -53,9 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const methodSelector = document.getElementById("methodSelector");
     const cameraSection = document.getElementById("camera-section");
     const uploadSection = document.getElementById("upload-section");
+    const toggleButton = document.getElementById('toggleAutoCapture');
 
-    // Covers functionality to take and upload photos to guess ASL sign located on the "Upload" page of website
-    // Force default display
+    let autoCaptureInterval;
+    let isAutoCapturing = false;
+
     cameraSection.style.display = "block";
     uploadSection.style.display = "none";
 
@@ -101,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
                 if (data.predictions && data.predictions.length > 0) {
                     const formatted = data.predictions
-                        .map((p) => `${p.label} @ (${p.x1}, ${p.y1}) → (${p.x2}, ${p.y2})`)
+                        .map((p) => `${p.label} : ${(p.confidence * 100).toFixed(0)}% chance.`)
                         .join("\n");
                     resultsTarget.textContent = formatted;
                 } else {
@@ -125,15 +124,47 @@ document.addEventListener("DOMContentLoaded", function () {
         sendToBackend(file, file.name, upload_results);
     });
 
-    // Webcam Snapshot
-    capture_image_button.addEventListener("click", function () {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // Auto capture functionality
+    toggleButton.addEventListener('click', function () {
+        if (!isAutoCapturing) {
+            startAutoCapture();
+            toggleButton.textContent = 'Stop Auto Capture';
+            toggleButton.style.backgroundColor = '#ff4444';
+        } else {
+            stopAutoCapture();
+            toggleButton.textContent = 'Start Auto Capture';
+            toggleButton.style.backgroundColor = '';
+        }
+    });
 
-        canvas.toBlob((image) => {
-            sendToBackend(image, "capture.jpg", camera_results);
-        }, "image/jpeg");
+    function startAutoCapture() {
+        isAutoCapturing = true;
+        const interval = document.getElementById('captureInterval').value * 1000;
+
+        autoCaptureInterval = setInterval(() => {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob((image) => {
+                sendToBackend(image, "auto-capture.jpg", camera_results);
+            }, "image/jpeg");
+        }, interval);
+    }
+
+    function stopAutoCapture() {
+        if (isAutoCapturing) {
+            isAutoCapturing = false;
+            clearInterval(autoCaptureInterval);
+        }
+    }
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', function () {
+        stopAutoCapture();
+        if (video.srcObject) {
+            video.srcObject.getTracks().forEach(track => track.stop());
+        }
     });
 });
