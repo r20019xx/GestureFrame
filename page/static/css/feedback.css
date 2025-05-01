@@ -1,0 +1,52 @@
+div#comments-section h3 {
+    text-align: center;
+}
+
+p#comment-empty {
+    padding: 5em 0 5em 0;
+    text-align: center;
+}
+
+div#comment-box {
+    margin: 4em 8em 6em 8em;
+    border: .1em solid #c5bfbf;
+    text-decoration: none;
+    text-align: left;
+}
+
+ul#comments-list {
+    padding: 0 0 0 .8em;
+}
+
+ul#comments-list li {
+    list-style-type: none;
+    text-align: left;
+}
+
+ul#comments-list li img {
+    display: inline;
+    float: left;
+    max-width: 1.5em;
+    margin-right: .7em;
+}
+
+ul#comments-list li p {
+    text-align: left;
+}
+
+div#comment-bottom {
+    display: flex;
+    border-top: .1em solid #c5bfbf;
+}
+
+div#comment-bottom label {
+    width: 80%;
+}
+
+div#comment-bottom label textarea {
+    width: 100%;
+}
+
+div#comment-bottom button {
+    width: 20%;
+}

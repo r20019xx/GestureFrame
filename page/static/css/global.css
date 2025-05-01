@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'Space Mono';
+  src: url("../fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url("../fonts/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url("../fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+html, body {
+    background-color: #778da9;
+    font-family: "Space Mono", Helvetica, Arial, serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*Content*/
+/* content styles*/
+div#content {
+    clear: left;
+    background-color: #ffffff;
+    overflow: hidden;
+    /*padding-top: 10%;*/
+    /*margin-bottom: 6%;*/
+}
+
+div#content h2 {
+    color: #0d1b2a;
+    text-align: center;
+    font-size: 2em;
+    font-style: italic;
+    /*margin-bottom: 2em;*/
+}
+
+
+/*Dark mode globals*/
+html.dark-mode,
+body.dark-mode {
+    background-color: #778da9;
+    color: #e0e1dd;
+}
+
+body.dark-mode input,
+body.dark-mode .input_user,
+body.dark-mode .input_pass,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode button {
+    background-color: #0d1b2a;
+    color: #ffffff;
+    border: 2px solid #009f93;
+}
+
+
+
+/*!* mobile styles *!*/
+/*@media (max-width: 794px) {*/
+/*    !* header styles*!*/
+/*    div#header {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    div#title-box h2 {*/
+/*        font-size: large;*/
+/*        display: block;*/
+/*    }*/
+
+/*    nav#navbar a {*/
+/*        font-size: small;*/
+/*    }*/
+
+/*    !* content styles*!*/
+/*    div.recipe-grid {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    div.recipe a p {*/
+/*        font-size: x-large;*/
+/*    }*/
+
+/*    !* footer styles *!*/
+/*    div#footer {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*    }*/
+/*    div#footer-nav  {*/
+/*        margin-left: 12.5%;*/
+/*        margin-bottom: 10%;*/
+/*    }*/
+/*}*/
+
+/* browser styles */
+@media all and (min-width: 795px) {
+    /* header styles */
+    div#title-box {
+        position: static;
+        float: left;
+        width: 65%;
+        margin-left: 12.5%;
+    }
+
+    div#title-box img {
+        display: inline;
+        float: left;
+        margin: 2em 1em 2.5em 0;
+    }
+
+    div#title-box h2 {
+        font-size: large;
+        display: block;
+    }
+
+    /* content styles*/
+    div.recipe-grid {
+        margin-left: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+
+    div.recipe a p {
+        font-size: larger;
+    }
+
+    /* footer styles */
+    div#footer-nav  {
+        margin-right: 12.5%;
+    }
+}

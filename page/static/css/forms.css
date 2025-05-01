@@ -1,0 +1,36 @@
+/* Form elements & buttons */
+
+.input_user,
+.input_pass {
+  border: 2px solid transparent;
+  width: 20em;
+  height: 3.5em;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.input_user:hover,
+.input_user:focus,
+.input_pass:hover,
+.input_pass:focus {
+  border: 5px solid #009f93;
+  box-shadow: 0 0 0 7px rgb(74, 157, 236, 20%);
+  background-color: white;
+}
+
+
+body.dark-mode input,
+body.dark-mode .input_user,
+body.dark-mode .input_pass,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode button {
+    background-color: #0d1b2a;
+    color: #ffffff;
+    border: 2px solid #009f93;
+}
+

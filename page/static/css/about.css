@@ -1,0 +1,39 @@
+/* about.css */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 6rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1b263b;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.about-content h2.section-title {
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+.about-content ul {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.about-content ul li {
+  margin-bottom: .5rem;
+}
+
+.about-content a {
+  color: #04ccbd;
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  text-decoration: underline;
+}

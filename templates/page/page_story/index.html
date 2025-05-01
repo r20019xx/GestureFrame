@@ -3,11 +3,94 @@
 {% block page-title %}{% endblock %}
 {% block title %}Home - SignVisionAI{% endblock %}
 {% block homeSelected %}selected{% endblock %}
+{% block page_specific_css %}
+  <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+{% endblock %}
+
 
 {% block content %}
-    <h2 class="section-title">Home</h2>
+{#    <div class="slogan-slider">#}
+{#        <h2 class="slogan">Empowering Conversations Through Vision AI</h2>#}
+{#    </div>#}
+    <div class="typewriter-container">
+      <p class="typewriter">Your Hands. Our AI. Instant Translation.</p>
+    </div>
+    <div class="wrap">
+        <div class="line">
+          <div class="left">
+            <div class="content">
+              <span class="spanSlow">
+                  <img
+                     src="{% static 'img/1_asl_v2.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image">
+                  <img
+                     src="{% static 'img/2_asl_v2.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image">
+                  <img
+                     src="{% static 'img/3_asl_v2.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+                  <img
+                     src="{% static 'img/4_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+                  <img
+                     src="{% static 'img/5_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+
+              </span>
+            </div>
+          </div><!--
+          --><div class="right">
+            <div class="content">
+              <span class="spanSlow">
+                  <img
+                     src="{% static 'img/1_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image">
+                  <img
+                     src="{% static 'img/2_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image">
+                  <img
+                     src="{% static 'img/3_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+                  <img
+                     src="{% static 'img/4_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+                  <img
+                     src="{% static 'img/5_asl.png' %}"
+                     alt="logo_a"
+                     class="spanSlow slide-image" >
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="left">
+            <div class="content">
+              <span class="spanSlow">ABCDE</span>
+            </div>
+          </div><!--
+          --><div class="right">
+            <div class="content">
+              <span class="spanSlow">ABCDE</span>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="cta">
+            <a href="{% url 'page:uploadview' %}">
+                <button class="button">Get Started</button>
+            </a>
+        </div>
         <div id="example-video">
-            <h3>Example Video of the ASL detector</h3>
+            <h3 class="body-text">Example Video of the ASL detector</h3>
             <video controls>
                 <source src="{% static "img/ASLExample.mp4" %}" type="video/mp4">
             </video>
