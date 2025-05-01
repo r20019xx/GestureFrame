@@ -1,168 +1,182 @@
 img.spanSlow,
 img.spanFast {
-  display: inline-block;
-  transition: transform 0.6s ease-out;
+    display: inline-block;
+    transition: none;
 }
 
 .slide-image {
-  max-width: 15vw;
-  height: 15vh;
+    max-width: 15vw;
+    height: 15vh;
 }
 
 .left {
-  /*background-color: #778da9;*/
+    /*background-color: #778da9;*/
 }
 
 .right {
-  /*background-color: pink;*/
+    /*background-color: pink;*/
 }
 
 .slogan-slider {
-  color: #0d1b2a;
-  padding: 2em;
+    color: #0d1b2a;
+    padding: 2em;
 }
 
 .wrap {
-  padding-top: 8%;
-  padding-bottom: 2%;
+    padding-top: 8%;
+    padding-bottom: 2%;
 }
+
 .line {
-  width: 100vw;
+    width: 100vw;
 }
+
 .left, .right {
-  width: 50vw;
-  overflow: hidden;
-  display: inline-block;
+    width: 50vw;
+    overflow: hidden;
+    display: inline-block;
 }
+
 .left {
-  color: #009f93;
-  transform: skew(0deg, -15deg);
+    color: #009f93;
+    transform: skew(0deg, -15deg);
 }
+
 .right {
-  color: #778da9;
-  transform: skew(0deg, 15deg);
+    color: #778da9;
+    transform: skew(0deg, 15deg);
 }
+
 .left .content {
-  width: 100vw;
-  text-align: center;
+    width: 100vw;
+    text-align: center;
 }
+
 .right .content {
-  width: 100vw;
-  text-align: center;
-  transform: translate(-50vw);
+    width: 100vw;
+    text-align: center;
+    transform: translate(-50vw);
 }
+
 span {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10vw;
-  text-transform: uppercase;
-  line-height: .8;
-  transition: ease-out .6s;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10vw;
+    text-transform: uppercase;
+    line-height: .8;
+    transition: ease-out .6s;
 }
 
 div#content .body-text h3 {
-  color: #1f2023;
-  padding: 2em;
-  font-size: 10px;
+    color: #1f2023;
+    padding: 2em;
+    font-size: 10px;
 }
 
 
 .cta {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 5em;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5em;
 }
 
 .button {
-  background-color: #eee;
-  border: none;
-  padding: 1rem;
-  font-size: 1.6rem;
-  width: 10em;
-  border-radius: 1rem;
-  color: #009f93;
-  box-shadow: 0 0.4rem #dfd9d9;
-  cursor: pointer;
-  text-decoration: none;
+    background-color: #eee;
+    border: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    width: 10em;
+    border-radius: 1rem;
+    color: #009f93;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+    text-decoration: none;
 
 }
 
 body.dark-mode .button {
-  box-shadow: 0 0.4rem #373d47;
+    box-shadow: 0 0.4rem #373d47;
 }
 
 .button:active {
-  color: white;
-  box-shadow: 0 0.2rem #dfd9d9;
-  transform: translateY(0.2rem);
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
 }
 
 .button:hover:not(:disabled) {
-  background: #009f93;
-  color: white;
-  text-shadow: 0 0.1rem #bcb4b4;
+    background: #009f93;
+    color: white;
+    text-shadow: 0 0.1rem #bcb4b4;
 }
 
 .button:disabled {
- cursor: auto;
- color: grey;
+    cursor: auto;
+    color: grey;
 }
 
 /* Center the video container’s contents */
 #example-video {
-  text-align: center;      /* center inline elements */
-  margin: 0 auto;          /* optional, to center the container itself if it has a width */
+    text-align: center; /* center inline elements */
+    margin: 0 auto; /* optional, to center the container itself if it has a width */
 }
 
 /* Make the video behave like an inline‑block and auto‑margin */
 #example-video video {
-  display: inline-block;   /* so margin:auto works */
-  margin: 0 auto;          /* horizontally center */
-  width: 70%;              /* or whatever width you want */
-  height: auto;            /* maintain aspect ratio */
+    display: inline-block; /* so margin:auto works */
+    margin: 0 auto; /* horizontally center */
+    width: 70%; /* or whatever width you want */
+    height: auto; /* maintain aspect ratio */
 }
 
 /** container to center the text vertically & horizontally *!*/
 .typewriter-container {
-  height: calc(10vh - 8em);  /* fill viewport minus header/nav */
-  padding: 5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
+    height: calc(10vh - 8em); /* fill viewport minus header/nav */
+    padding: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
 }
 
 /* the typewriter line */
 .typewriter {
-  justify-content: center;
-  font-family: 'Anonymous Pro', monospace;
-  font-size: 180%;
-  color: rgb(13, 27, 42);
-  white-space: nowrap;        /* keep on one line */
-  overflow: hidden;           /* hide the hidden text */
-  width: 24em;                /* final text width */
-  margin: 0;                  /* already centered by flexbox */
-  text-align: center;
+    justify-content: center;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 180%;
+    color: rgb(13, 27, 42);
+    white-space: nowrap; /* keep on one line */
+    overflow: hidden; /* hide the hidden text */
+    width: 24em; /* final text width */
+    margin: 0; /* already centered by flexbox */
+    text-align: center;
 
-  /* no permanent border—remove the cursor line */
-  /* border-right: 2px solid rgba(255,255,255,.75); */
+    /* no permanent border—remove the cursor line */
+    /* border-right: 2px solid rgba(255,255,255,.75); */
 
-  /* Animation:
-     • typewriter: reveal the text
-     • blinkTextCursor: blink a cursor via border-right */
-  animation:
-    typewriter 4s steps(44) 1s 1 normal both,
+    /* Animation:
+       • typewriter: reveal the text
+       • blinkTextCursor: blink a cursor via border-right */
+    animation: typewriter 4s steps(44) 1s 1 normal both,
     blinkTextCursor 500ms steps(44) infinite normal;
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to   { width: 24em; }
+    from {
+        width: 0;
+    }
+    to {
+        width: 24em;
+    }
 }
 
 @keyframes blinkTextCursor {
-  from { border-right-color: rgba(255,255,255,.75); }
-  to   { border-right-color: transparent; }
+    from {
+        border-right-color: rgba(255, 255, 255, .75);
+    }
+    to {
+        border-right-color: transparent;
+    }
 }
 
 

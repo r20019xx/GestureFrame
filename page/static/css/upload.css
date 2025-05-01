@@ -1,39 +1,39 @@
 #detection-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-  box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .camera-flex-container {
-  display: flex;
-  align-items: stretch;  /* child items will stretch to same height */
+    display: flex;
+    align-items: stretch; /* child items will stretch to same height */
 }
 
 .camera-left,
 .camera-right {
-  flex: 1 1 300px;
-  padding: 1rem;
-  box-sizing: border-box;
+    flex: 1 1 300px;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .camera-left h3,
 .camera-right h3 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
 }
 
 .camera-right {
     width: 48%;
     text-align: center;
-  /*flex: 1;                         !* same flex as .camera-left *!*/
-  /*background-color: #bddcd8;*/
-  /*display: flex;                   !* make it a flex container *!*/
-  justify-content: center;         /* center horizontally */
-  /*align-items: center;             !* center vertically *!*/
-  /*padding: 1rem;                   !* breathing room inside *!*/
-  /*box-sizing: border-box;*/
+    /*flex: 1;                         !* same flex as .camera-left *!*/
+    /*background-color: #bddcd8;*/
+    /*display: flex;                   !* make it a flex container *!*/
+    justify-content: center; /* center horizontally */
+    /*align-items: center;             !* center vertically *!*/
+    /*padding: 1rem;                   !* breathing room inside *!*/
+    /*box-sizing: border-box;*/
 }
 
 .camera-right pre {
@@ -49,40 +49,39 @@
 }
 
 #methodSelector {
-  font-size: 1.25rem;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 1rem;
+    font-size: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .camera-left video {
-  width: 100%;
-  max-width: 100%;
-  border: 4px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+    width: 70%;
+    border: 4px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 1rem;
 }
 
 .camera-left canvas {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
 }
 
 button.my-button,
 #upload-section button {
-  font-size: 1.25rem;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  border: none;
-  background: #04ccbd;
-  color: white;
-  transition: background .2s ease;
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    background: #04ccbd;
+    color: white;
+    transition: background .2s ease;
 }
 
 button.my-button:hover,
 #upload-section button:hover {
-  background: #039f93;
+    background: #039f93;
 }
 
 .camera-right pre,
@@ -97,9 +96,15 @@ button.my-button:hover,
     white-space: pre-wrap;
 }
 
+.camera-right pre {
+    width: 70%;
+    max-width: 100%;
+    margin: 1rem auto;
+}
+
 #upload-section input[type="file"] {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 #upload-section {
@@ -112,8 +117,8 @@ button.my-button:hover,
 }
 
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 

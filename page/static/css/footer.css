@@ -1,6 +1,11 @@
 /* footer styles styles */
 #footer {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,12 +20,12 @@
 }
 
 #copyright {
-   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  font-size: medium;
-  color: #F3F3F3;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: medium;
+    color: #F3F3F3;
 }
 
 #footer-nav {

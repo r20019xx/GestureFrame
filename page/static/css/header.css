@@ -1,4 +1,10 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 10rem;
     display: flex;
     background-color: #778da9;
     color: #e0e1dd;
@@ -33,15 +39,15 @@
 .logo-title-link img {
     margin: 0;
     padding: 0;
-    max-width: 12em;
+    max-width: 8em;
 }
 
 .site-title {
     font-weight: bold;
     text-align: center;
-    font-size:72px;
+    font-size: 56px;
     display: inline-block;
-    padding:30px;
+    padding: 24px;
 }
 
 /*Login stuff*/
@@ -49,7 +55,6 @@
 #logged-in {
     justify-content: space-between;
     align-items: center;
-    margin-top: 2%;
     padding: 0 2rem;
     /*padding-left: 5rem;*/
     /*padding-right: 5rem;*/
@@ -62,73 +67,78 @@ div#logged-in img {
     margin: 0 1em 0 0;
 }
 
-div#logged-in span{
+div#logged-in span {
     border: .1em solid #c5bfbf;
 }
 
-div#logged-in button{
+div#logged-in button {
     display: block;
     margin-top: 1em;
 }
 
 
 div#logged-in .input_reg {
-  position: relative;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1em 2.5em;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 6em;
-  transition: all 0.2s;
-  border: none;
-  /*font-family: inherit;*/
-  font-weight: 500;
-  color: #ffffff;
-  background-color: #04ccbd;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6em;
+    transition: all 0.2s;
+    border: none;
+    /*font-family: inherit;*/
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #04ccbd;
 }
 
-div#logged-in .input_reg:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgb(0, 159, 147);
+div#logged-in .input_reg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgb(0, 159, 147);
 }
 
 
-div#logged-in .input_reg:active{
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgb(0, 159, 147);
-}
-
-div#logged-in .input_reg::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
+div#logged-in .input_reg:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgb(0, 159, 147);
 }
 
 div#logged-in .input_reg::after {
-  background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
 }
 
-div#logged-in .input_reg:hover::after{
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
+div#logged-in .input_reg::after {
+    background-color: #fff;
+}
+
+div#logged-in .input_reg:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
 }
 
 /*Nav bar styling*/
 
 #navbar {
+    position: fixed;
+    top: 10rem;
+    left: 0;
+    right: 0;
+    z-index: 999;
     clear: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 3em;
+    height: 3rem;
     background-color: #778da9;
     width: 100%;
     gap: 1rem;
@@ -170,11 +180,13 @@ nav#navbar form#search {
     font-size: 20px;
     margin: 0;
 }
+
 nav#navbar #search-bar {
     width: 70%;
     margin-right: 0.5em;
     font-size: 20px;
 }
+
 nav#navbar #search-submit {
     font-size: 20px;
     width: 30%;

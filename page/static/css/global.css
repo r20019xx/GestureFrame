@@ -1,26 +1,37 @@
 @font-face {
-  font-family: 'Space Mono';
-  src: url("../fonts/SpaceMono-Regular.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Space Mono';
+    src: url("../fonts/SpaceMono-Regular.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: 'Space Mono';
-  src: url("../fonts/SpaceMono-Italic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
+    font-family: 'Space Mono';
+    src: url("../fonts/SpaceMono-Italic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
 }
+
 @font-face {
-  font-family: 'Space Mono';
-  src: url("../fonts/SpaceMono-Bold.ttf") format("truetype");
-  font-weight: 700;
+    font-family: 'Space Mono';
+    src: url("../fonts/SpaceMono-Bold.ttf") format("truetype");
+    font-weight: 700;
 }
 
 html, body {
-    background-color: #778da9;
+    min-height: calc(100vh - 17rem);
     font-family: "Space Mono", Helvetica, Arial, serif;
-    margin: 0;
     padding: 0;
+}
+
+html {
+    background-color: #778da9;
+}
+
+body {
+    margin-top: 13rem;
+    margin-bottom: 4rem;
+    background-color: white;
 }
 
 /*Content*/
@@ -59,7 +70,6 @@ body.dark-mode button {
     color: #ffffff;
     border: 2px solid #009f93;
 }
-
 
 
 /*!* mobile styles *!*/
@@ -134,7 +144,7 @@ body.dark-mode button {
     }
 
     /* footer styles */
-    div#footer-nav  {
+    div#footer-nav {
         margin-right: 12.5%;
     }
 }
