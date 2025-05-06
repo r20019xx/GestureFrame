@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 import environ
 import dj_database_url
@@ -98,17 +99,37 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 #         ssl_require=(env("DJANGO_ENV", default="development") == "production"),
 #     )
 # }
+env = environ.Env()
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "db",
-        "USER": "doadmin",
-        "PASSWORD": "AVNS_tAjSiJ8VUQwLpqkfmLC",
-        "HOST": "app-f6654ef2-4ffa-4727-a87e-bcb6837fe814-do-user-20912697-0.h.db.ondigitalocean.com",
-        "PORT": "25060",
+env_file = BASE_DIR / ".env"
+if env_file.exists():
+    env.read_env(env_file)
+
+local_url = env("DATABASE_URL", default=None)
+if local_url:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            local_url,
+            engine="django.db.backends.postgresql",
+        )
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "db",
+            "USER": "doadmin",
+            "PASSWORD": "AVNS_tAjSiJ8VUQwLpqkfmLC",
+            "HOST": "app-f6654ef2-4ffa-4727-a87e-bcb6837fe814-do-user-20912697-0.h.db.ondigitalocean.com",
+            "PORT": "25060",
+        }
+    }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
