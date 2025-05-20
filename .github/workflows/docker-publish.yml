@@ -5,39 +5,38 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: write 
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          submodules: true
+          submodules: recursive
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Log in to GitHub Container Registry
+      - name: Log in to GHCR
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository_owner }}/signvisionai-front-end:latest
           platforms: linux/amd64,linux/arm64
-
-      - name: Trigger deployment on DigitalOcean App Platform
-        run: |
-          curl -X POST "https://api.digitalocean.com/v2/apps/095deb70-0d80-4503-87b5-4a4802f92335/deployments" \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer dop_v1_800d740624a1bc97387475f9833fd91e7b87d7dd203a330c69ffdd2e05c61764" \
-          -d '{"force_build": true}'
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
+          cache-from: type=gha
+          cache-to:   type=gha,mode=max

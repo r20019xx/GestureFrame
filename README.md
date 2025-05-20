@@ -33,8 +33,8 @@ Use `pip install -r requirements.txt` after creating a virtual environment.
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/r20019xx/GestureFrame.git
-cd signvisionai-front-end
+git clone https://github.com/r20019xx/gesture-frame.git
+cd GestureFrame
 
 # 2. Initialize submodules
 git submodule update --init --recursive
@@ -62,8 +62,8 @@ python manage.py runserver      # http://localhost:8000/
 ## Docker
 
 ```bash
-docker build -t signvisionai-front-end:latest .
-docker run -d -p 8000:8000 --env-file .env signvisionai-front-end:latest
+docker build -t gesture-frame:latest .
+docker run -d -p 8000:8000 --env-file .env gesture-frame:latest
 ```
 
 Or with **Docker Compose**:
@@ -80,21 +80,13 @@ A single workflow file at `.github/workflows/docker-publish.yml` performs:
 
 1. **Checkout** the repository
 2. **Build & push** a multi‑arch Docker image to GHCR
-3. **Trigger redeploy** on DigitalOcean App Platform
-
-Secrets required:
-
-| Secret name    | Purpose                                      |
-|----------------|----------------------------------------------|
-| `CR_PAT`       | Personal access token for GHCR/Docker Hub    |
-| `DO_API_TOKEN` | DigitalOcean API token to trigger deployment |
 
 ---
 
 ## Project Layout
 
 ```
-SignVisionAI-Front-End/
+GestureFrame/
 ├── .github/
 │   └── workflows/
 │       └── docker-publish.yml
