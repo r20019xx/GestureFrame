@@ -14,3 +14,4 @@ djangorestframework==3.16.0
 psycopg2-binary==2.9.10
 dj-database-url==2.3.0
 django-environ==0.12.0
+seaborn==0.13.2
