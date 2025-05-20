@@ -19,11 +19,17 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+
+env_file = BASE_DIR / ".env"
+if env_file.exists():
+    env.read_env(env_file)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o2=r)cb@$2nf56nxf!1wq88h!l2%0r)m*ash*wbej*e2n&97o@'
+SECRET_KEY = env("SECRET_KEY", default='django-insecure-o2=r)cb@$2nf56nxf!1wq88h!l2%0r)m*ash*wbej*e2n&97o@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -99,11 +105,6 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 #         ssl_require=(env("DJANGO_ENV", default="development") == "production"),
 #     )
 # }
-env = environ.Env()
-
-env_file = BASE_DIR / ".env"
-if env_file.exists():
-    env.read_env(env_file)
 
 local_url = env("DATABASE_URL", default=None)
 if local_url:
@@ -112,17 +113,6 @@ if local_url:
             local_url,
             engine="django.db.backends.postgresql",
         )
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "db",
-            "USER": "doadmin",
-            "PASSWORD": "AVNS_tAjSiJ8VUQwLpqkfmLC",
-            "HOST": "app-f6654ef2-4ffa-4727-a87e-bcb6837fe814-do-user-20912697-0.h.db.ondigitalocean.com",
-            "PORT": "25060",
-        }
     }
 
 if 'test' in sys.argv:
