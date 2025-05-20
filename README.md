@@ -1,8 +1,8 @@
-# SignVisionAI (CS5704 Group 7 Project)
+# GestureFrame
 
 ## Overview
 
-**SignVisionAI Front‑End** is a Django‑based web interface that streams webcam frames to a PyTorch / YOLOv5 inference
+**GestureFrame** is a Django‑based web interface that streams webcam frames to a PyTorch / YOLOv5 inference
 service and overlays recognised sign‑language gestures in real time.
 
 **Highlights**
@@ -33,7 +33,7 @@ Use `pip install -r requirements.txt` after creating a virtual environment.
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/<your-org>/signvisionai-front-end.git
+git clone https://github.com/r20019xx/GestureFrame.git
 cd signvisionai-front-end
 
 # 2. Initialize submodules
