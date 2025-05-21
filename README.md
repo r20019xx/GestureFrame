@@ -1,5 +1,7 @@
 # GestureFrame
 
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 ## Overview
 
 **GestureFrame** is a Django‑based web interface that streams webcam frames to a PyTorch / YOLOv5 inference
@@ -187,3 +189,7 @@ Perform these steps in a web browser against the running application at `http://
 8. **Log out**
     - Click **Log Out** in the navbar.
     - **Expected:** You are redirected to the **Login** page and no longer see your username in the navbar.
+
+## License
+This project is licensed under the GNU Affero General Public License v3.0.
+By using or deploying this project, you agree to comply with all AGPL-3.0 terms, including the requirement to make source code available when the service is accessed over a network.

@@ -19,7 +19,21 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
+env = environ.Env(    
+    DJANGO_ALLOWED_HOSTS=(
+        list, 
+        [
+            "localhost", 
+            "127.0.0.1"
+        ]),
+    DJANGO_CSRF_TRUSTED_ORIGINS=(
+        list,
+        [
+            "http://127.0.0.1:8000",
+            "http://localhost:8000",
+        ],
+    ),)
+
 
 env_file = BASE_DIR / ".env"
 if env_file.exists():
@@ -34,16 +48,8 @@ SECRET_KEY = env("SECRET_KEY", default='django-insecure-o2=r)cb@$2nf56nxf!1wq88h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.ondigitalocean.app']
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://127.0.0.1:8000",
-    "http://localhost:8000",
-    "https://*.ondigitalocean.app",
-]
+ALLOWED_HOSTS = env("DJANGO_ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = env("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 # File Based Session
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
